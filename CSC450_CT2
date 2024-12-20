@@ -1,0 +1,44 @@
+//============================================================================
+// Name        : CSC450_CT2.cpp
+// Author      : Josephine Huynh
+// Description : Create a C++ program allow user to enter 3 times for 2 string inputs and concatenate the two strings as well as measuring the length of the strings
+//============================================================================
+
+#include <iostream>
+#include <cstring>
+// Standard namespace declaration
+using namespace std;
+
+int main() {
+	// Setting the number of attempts for users to enter the information
+    const int attempts = 3;
+    // Define the maximum length for each string
+    const int charLimit = 150;
+
+    for (int i = 0; i < attempts; i++) {
+    	// Array for the first string
+        char firstString[charLimit];
+        // Array for the second string
+        char secondString[charLimit];
+        // Array for the concatenated string
+        char concatenatedString[charLimit*2] = " ";
+        // Prompt user to enter first string
+        cout<< "Please enter the first string (Attempt  "<<i+1<<"): ";
+        cin.getline(firstString, charLimit);
+        // Prompt user to enter second string
+        cout << "Please enter the second string (Attempt "<<i+1<<"): ";
+        cin.getline(secondString, charLimit);
+        // Copy the first string into concatenatedString
+        strcpy(concatenatedString, firstString);
+        // Append a space to concatenatedString to allow printing words with a space in between
+        strcat(concatenatedString, " ");
+        // Append the second string to concatenatedString
+        strcat(concatenatedString, secondString);
+        // Display the concatenated strings from the combination of first string and second string that user entered
+        cout<<"Concatenated strings (Attempt " <<i+1<< "): "<<concatenatedString<<endl;
+        // Display the length of the concatenated strings
+        cout<<"Length of concatenated strings: "<< strlen(concatenatedString)<<endl;
+    }
+
+    return 0;
+}
